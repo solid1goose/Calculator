@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Calculator</title>
+  <link href="css.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <input id="conclusion" type="text" value="">
+
+  <div id="buttonsPanel">
+    <div id="buttonsNumbers">
+      <button>0</button>
+      <button class="buttonEnter">=</button>
+      <button class="buttonDelete"><</button>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+    </div>
+    <div id="buttonsSigns">
+      <button>*</button>
+      <button>/</button>
+      <button>-</button>
+      <button>+</button>
+    </div>
+  </div>
+
+
+  <script>
+    let checker = 0
+    let arrayButtons = document.querySelectorAll('button')
+    for (elem of arrayButtons) {
+        elem.onclick = enter
+    }
+    document.querySelector('.buttonEnter').onclick = calculate
+    document.querySelector('.buttonDelete').onclick = del
+    function del(){
+      conclusion.value = conclusion.value.slice(0, -1)
+    }
+    function calculate() {
+      conclusion.value = eval(conclusion.value);
+    }
+    function enter() {
+      conclusion.value += this.textContent
+    }
+  </script>
+
+</body>
+
+</html>
